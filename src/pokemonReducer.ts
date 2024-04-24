@@ -1,19 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { Reducer } from "redux";
+import { PokemonDataTwo } from "./types";
 
 const initialState = {
   pokemons: [],
 };
 type AddPokemonAction = {
   type: "ADD_POKEMON";
-  payload: string;
+  payload: PokemonDataTwo;
 };
 type RemovePokemonAction = {
   type: "REMOVE_POKEMON";
-  payload: string;
+  payload: PokemonDataTwo;
 };
 type State = {
-  pokemons: string[];
+  pokemons: PokemonDataTwo[];
 };
 export type UnionAction = AddPokemonAction | RemovePokemonAction;
 

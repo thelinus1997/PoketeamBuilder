@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PokemonDataTwo } from "./types";
 
 const baseUrl = "https://pokeapi.co/api/v2/";
 
@@ -15,7 +16,9 @@ const baseUrl = "https://pokeapi.co/api/v2/";
 // }
 async function searchPokemonName(name: string) {
   try {
-    const response = await axios.get(`${baseUrl}pokemon/${name}`);
+    const response = await axios.get<PokemonDataTwo>(
+      `${baseUrl}pokemon/${name}`
+    );
     //console.log(response.data);
     return response.data;
   } catch (e) {

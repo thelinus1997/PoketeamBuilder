@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchPokemonName } from "../../apifunctions";
 import useDebounce from "../../hooks/useDebounce";
+import { PokemonDataTwo } from "../../types";
 
 const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,9 +13,11 @@ const SearchBar: React.FC = () => {
       console.log("search term found");
       try {
         const fetchData = async () => {
-          const response = await searchPokemonName(debouncedSearchterm);
+          const response = (await searchPokemonName(
+            debouncedSearchterm
+          )) as PokemonDataTwo;
           if (response) {
-            dispatch({ type: "ADD_POKEMON", payload: response.name });
+            dispatch({ type: "ADD_POKEMON", payload: response });
           }
         };
         fetchData();
