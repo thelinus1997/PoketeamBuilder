@@ -38,14 +38,16 @@ const SearchBar: React.FC = () => {
   };
   return (
     <>
-      <h2 id="searchTitle">Add a pokemon to your team</h2>
-      <input
-        type="text"
-        name="search"
-        id="searchBar"
-        value={searchTerm}
-        onChange={handleChange}
-      />
+      <div className="searchContainer">
+        <h2 id="searchTitle">Add a pokemon to your team</h2>
+        <input
+          type="text"
+          name="search"
+          id="searchBar"
+          value={searchTerm}
+          onChange={handleChange}
+        />
+      </div>
     </>
   );
 };

@@ -1,0 +1,15 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 25rem;
+    text-align: center; /* Center-align the text horizontally */
+    line-height: inherit; /* Ensure the line height inherits from the input field */
+    height: 100%; /* Set the height of the input field to 100% */
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center-align the content vertically */
+    font-size: 1.5em;
+  }
+}

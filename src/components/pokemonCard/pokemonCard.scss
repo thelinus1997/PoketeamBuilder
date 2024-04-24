@@ -1,12 +1,54 @@
 .pokemonCardContainer {
-  margin-right: 5rem;
   margin-top: 1rem;
   border: 1px solid black;
   border-radius: 20px;
   padding: 1rem;
   width: 15rem;
-  img {
-    width: 3rem;
-    height: 3rem;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../assets/pokemonBG.png");
+  background-size: cover;
+  background-position: center;
+  .nameSpriteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      font-size: 2rem;
+    }
+    img {
+      height: 10rem;
+      width: 10rem;
+    }
+  }
+  .typeContainer {
+    display: flex;
+    justify-content: space-evenly;
+    img {
+      background-color: white;
+      width: 5rem;
+    }
+  }
+
+  div {
+    p {
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+      button {
+        width: 2rem;
+        height: auto;
+        text-align: center;
+      }
+    }
+  }
+  .moveContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      font-size: 0.85rem;
+    }
   }
 }

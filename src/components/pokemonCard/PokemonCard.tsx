@@ -33,26 +33,6 @@ const PokemonCard: React.FC<PokeProp> = ({ data }) => {
   const pokemonTypes: string[] = data.types.map(
     (type, index) => type.type.name
   );
-  // const typeImageArray = [
-  //   bug,
-  //   dark,
-  //   dragon,
-  //   electric,
-  //   fairy,
-  //   fighting,
-  //   fire,
-  //   flying,
-  //   ghost,
-  //   grass,
-  //   ground,
-  //   ice,
-  //   normal,
-  //   poison,
-  //   psychic,
-  //   rock,
-  //   steel,
-  //   water,
-  // ];
   const svgImages: { [key: string]: any } = {
     bug: bug,
     dark: dark,
@@ -83,8 +63,10 @@ const PokemonCard: React.FC<PokeProp> = ({ data }) => {
         setMoves([moveName]);
       } else {
         console.log(moveName);
-        setMoves([...moves, moveName]);
-        setNumberOfMoves(numberOfMoves + 1);
+        if (!moves.includes(moveName)) {
+          setMoves([...moves, moveName]);
+          setNumberOfMoves(numberOfMoves + 1);
+        }
       }
     }
     // Handle move selection here if needed
@@ -100,20 +82,15 @@ const PokemonCard: React.FC<PokeProp> = ({ data }) => {
   return (
     <>
       <div className="pokemonCardContainer">
-        <span>
+        <span className="nameSpriteContainer">
           <img src={data.sprites.front_default} alt="" /> <h2>{data.name}</h2>
         </span>
         <div>
-          <p>
+          <p className="typeContainer">
             Types:
-            {pokemonSVGs.map((svg) => (
-              <img src={svg}></img>
+            {pokemonSVGs.map((svg, index) => (
+              <img src={svg} key={index}></img>
             ))}
-            {/* {typeImageArray.map((type, index) => {
-                if (type === pokemonTypes[index].name) {
-                  return <img src={type}></img>;
-                }
-              })} */}
           </p>
         </div>
         <div className="moveContainer">
@@ -129,8 +106,8 @@ const PokemonCard: React.FC<PokeProp> = ({ data }) => {
             </div>
           )}
         </div>
-        <div>
-          Moves:
+        <div className="moveContainer">
+          <h2>Moves:</h2>
           {moves.map((moveName, index) => (
             <p key={index}>
               {moveName}{" "}
