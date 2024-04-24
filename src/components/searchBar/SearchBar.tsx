@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { searchPokemonName } from "../../apifunctions";
 import useDebounce from "../../hooks/useDebounce";
 import { PokemonDataTwo } from "../../types";
-
+import { store } from "../../pokemonReducer";
 const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchterm: string = useDebounce(searchTerm, 500);
@@ -17,7 +17,12 @@ const SearchBar: React.FC = () => {
             debouncedSearchterm
           )) as PokemonDataTwo;
           if (response) {
-            dispatch({ type: "ADD_POKEMON", payload: response });
+            const currentTeam = store.getState().pokemons;
+            if (currentTeam.length < 6) {
+              dispatch({ type: "ADD_POKEMON", payload: response });
+            } else {
+              alert("Only 6 pokemon allowed in a team!");
+            }
           }
         };
         fetchData();
