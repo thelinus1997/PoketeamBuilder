@@ -2,10 +2,13 @@ import "./App.scss";
 import TeamContainer from "./components/teamContainer/TeamContainer";
 import * as API from "./apifunctions";
 import SearchBar from "./components/searchBar/SearchBar";
+import bannerImg from "./assets/banner.png";
 function App() {
   return (
     <>
-      <h1>pokemon team builder</h1>
+      <div className="imageContainer">
+        <img src={bannerImg} alt="" />
+      </div>
       <SearchBar />
       <TeamContainer />
     </>

@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import { searchPokemonName } from "../../apifunctions";
 import useDebounce from "../../hooks/useDebounce";
 import { PokemonDataTwo } from "../../types";
-import { store } from "../../pokemonReducer";
+import { store } from "../../pokemonStore";
+import "./searchBar.scss";
 const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchterm: string = useDebounce(searchTerm, 500);
@@ -37,7 +38,7 @@ const SearchBar: React.FC = () => {
   };
   return (
     <>
-      <h2 id="searchTitle">Search for any pokemon</h2>
+      <h2 id="searchTitle">Add a pokemon to your team</h2>
       <input
         type="text"
         name="search"

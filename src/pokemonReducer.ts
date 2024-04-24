@@ -13,6 +13,7 @@ type RemovePokemonAction = {
   type: "REMOVE_POKEMON";
   payload: PokemonDataTwo;
 };
+
 type State = {
   pokemons: PokemonDataTwo[];
 };
@@ -33,14 +34,12 @@ export const pokemonReducer: Reducer<State, UnionAction> = (
         ...state,
         pokemons: state.pokemons.filter((string) => string !== action.payload),
       };
+
     default:
       return state;
   }
 };
 
-export const store = configureStore({
-  reducer: pokemonReducer,
-});
-store.subscribe(() => {
-  console.log("State after update:", store.getState());
-});
+// export const store = configureStore({
+//   reducer: pokemonReducer,
+// });
