@@ -1,10 +1,12 @@
 import "./App.scss";
 import TeamContainer from "./components/teamContainer/TeamContainer";
-import * as API from "./apifunctions";
 import SearchBar from "./components/searchBar/SearchBar";
 import bannerImg from "./assets/banner.png";
 import { store } from "./pokemonStore";
 import { useEffect, useState } from "react";
+import { Route, Routes, Link } from "react-router-dom";
+import PokemonInDepth from "./components/pokemonInDepth/PokemonInDepth";
+import HomePage from "./components/homePage/HomePage";
 function App() {
   const [teamSize, setTeamSize] = useState(0);
   console.log(store.getState().pokemons);
@@ -19,13 +21,16 @@ function App() {
   }, []);
   return (
     <>
-      {teamSize === 0 && (
-        <div className="imageContainer">
+      <div className="imageContainer">
+        <Link to="/">
           <img src={bannerImg} alt="" />
-        </div>
-      )}
-      {teamSize < 6 && <SearchBar />}
-      <TeamContainer />
+        </Link>
+      </div>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/indepth/:id" element={<PokemonInDepth />} />
+      </Routes>
     </>
   );
 }

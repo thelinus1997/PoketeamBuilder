@@ -1,6 +1,6 @@
 import axios from "axios";
 import { PokemonDataTwo } from "./types";
-
+import { Movetypes } from "./types/moveTypes";
 const baseUrl = "https://pokeapi.co/api/v2/";
 
 // async function fetchRandomPokemon() {
@@ -25,6 +25,23 @@ async function searchPokemonName(name: string) {
     console.error(e + "Did you enter an existing pokemon?");
   }
 }
+async function searchPokemonId(id: string) {
+  try {
+    const response = await axios.get<PokemonDataTwo>(`${baseUrl}pokemon/${id}`);
+    //console.log(response.data);
+    return response.data;
+  } catch (e) {
+    console.error(e + "Did you enter an existing pokemon?");
+  }
+}
+async function searchMove(id: string) {
+  try {
+    const response = await axios.get<Movetypes>(`${baseUrl}/move/${id}`);
+    return response.data;
+  } catch (e) {
+    console.error(e);
+  }
+}
 // async function pokemonAbilityDescription(abilityUrls: types.Ability[]) {
 //   let abilityArray: string[] = [];
 //   for (let i = 0; i < abilityUrls.length; i++) {
@@ -40,4 +57,4 @@ async function searchPokemonName(name: string) {
 //   return abilityArray;
 // }
 
-export { searchPokemonName };
+export { searchPokemonName, searchPokemonId, searchMove };

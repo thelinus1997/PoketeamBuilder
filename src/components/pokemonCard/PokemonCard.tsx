@@ -20,6 +20,8 @@ import psychic from "../../assets/psychic.svg";
 import rock from "../../assets/rock.svg";
 import steel from "../../assets/steel.svg";
 import water from "../../assets/water.svg";
+import { Link } from "react-router-dom";
+import PokemonInDepth from "../pokemonInDepth/PokemonInDepth";
 
 interface PokeProp {
   data: PokemonDataTwo;
@@ -83,7 +85,10 @@ const PokemonCard: React.FC<PokeProp> = ({ data }) => {
     <>
       <div className="pokemonCardContainer">
         <span className="nameSpriteContainer">
-          <img src={data.sprites.front_default} alt="" /> <h2>{data.name}</h2>
+          <img src={data.sprites.front_default} alt="" />{" "}
+          <h2>
+            <Link to={`/indepth/${data.id}`}>{data.name}</Link>
+          </h2>
         </span>
         <div>
           <p className="typeContainer">

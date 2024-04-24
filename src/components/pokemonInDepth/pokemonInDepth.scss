@@ -1,0 +1,56 @@
+.pokemonData {
+  height: 82.5vh;
+  .pointlessContainer {
+    height: 100%;
+  }
+}
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 20rem;
+  font-size: 3rem;
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+.infoContainer {
+  display: flex;
+}
+
+.statContainer {
+  border: 2px solid blue;
+  width: 15rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  max-height: 25rem;
+  overflow-y: auto;
+}
+.abilityContainer {
+  border: 2px solid blue;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  width: 30rem;
+  max-height: 25rem;
+  overflow-y: auto;
+}
+.movesListContainer {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border: 2px solid blue;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  max-height: 25rem;
+  overflow-y: auto;
+  p {
+    display: inline;
+    white-space: nowrap;
+  }
+}
