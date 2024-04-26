@@ -11,7 +11,6 @@ const PokemonInDepth = () => {
       try {
         const fetchData = async () => {
           const response = await searchPokemonId(id);
-          console.log(response);
           if (response) {
             setPokemonData(response);
           }

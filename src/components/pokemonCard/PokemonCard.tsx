@@ -21,7 +21,6 @@ import rock from "../../assets/rock.svg";
 import steel from "../../assets/steel.svg";
 import water from "../../assets/water.svg";
 import { Link } from "react-router-dom";
-import PokemonInDepth from "../pokemonInDepth/PokemonInDepth";
 
 interface PokeProp {
   data: PokemonDataTwo;
@@ -64,7 +63,6 @@ const PokemonCard: React.FC<PokeProp> = ({ data }) => {
       if (moves[0] === "") {
         setMoves([moveName]);
       } else {
-        console.log(moveName);
         if (!moves.includes(moveName)) {
           setMoves([...moves, moveName]);
           setNumberOfMoves(numberOfMoves + 1);
@@ -78,9 +76,6 @@ const PokemonCard: React.FC<PokeProp> = ({ data }) => {
     setMoves(updatedMoves);
     setNumberOfMoves(numberOfMoves - 1);
   };
-  useEffect(() => {
-    console.log(moves);
-  }, [moves]);
   return (
     <>
       <div className="pokemonCardContainer">

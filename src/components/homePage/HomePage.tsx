@@ -1,4 +1,3 @@
-import React from "react";
 import SearchBar from "../searchBar/SearchBar";
 import TeamContainer from "../teamContainer/TeamContainer";
 

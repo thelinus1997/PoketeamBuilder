@@ -4,7 +4,7 @@ import { searchPokemonName } from "../../apifunctions";
 import useDebounce from "../../hooks/useDebounce";
 import { PokemonDataTwo } from "../../types";
 import { store } from "../../pokemonStore";
-import "./searchBar.scss";
+import "./SearchBar.scss";
 const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchterm: string = useDebounce(searchTerm, 500);
@@ -33,7 +33,6 @@ const SearchBar: React.FC = () => {
     }
   }, [debouncedSearchterm]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("change");
     setSearchTerm(e.target.value);
   };
   return (

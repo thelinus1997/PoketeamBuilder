@@ -19,6 +19,7 @@ function App() {
       unsubscribe();
     };
   }, []);
+
   return (
     <>
       <div className="imageContainer">
